@@ -61,7 +61,6 @@
         h1{font-size:1.6rem;margin-bottom:8px}h2{font-size:1.2rem;margin:24px 0 12px;color:#ddd}
         .subtitle{color:var(--muted);font-size:.95rem;margin-bottom:24px}
     </style>
-</head>
 <body>
 <div class="sidebar">
     <h2>Simready Tools</h2>
@@ -71,11 +70,13 @@
     <div id="nav-replacer" class="nav-item" onclick="go('replacer')">🔄 Replacer</div>
     <div id="nav-scatter" class="nav-item" onclick="go('scatter')">🌿 Scatter</div>
     <div id="nav-shelf" class="nav-item" onclick="go('shelf')">📦 Shelf Tool</div>
+    <div id="nav-bookshelf" class="nav-item" onclick="go('bookshelf')">📚 Book Shelf</div>
     <div id="nav-polycount" class="nav-item" onclick="go('polycount')">📊 PolyCount</div>
-    <div id="nav-massfx" class="nav-item" onclick="go('massfx')">💥 MassFX Tools</div>
+    <div id="nav-drop" class="nav-item" onclick="go('drop')">💥 Physics Drop</div>
     <div id="nav-workflows" class="nav-item" onclick="go('workflows')">📋 Workflows</div>
     <div id="nav-faq" class="nav-item" onclick="go('faq')">❓ FAQ</div>
-    <div class="sidebar-footer">Simready Tools v2.3<br>© Nfinite Pipeline</div>
+    <div id="nav-changes" class="nav-item" onclick="go('changes')">🆕 What's New</div>
+    <div class="sidebar-footer">Simready Tools v2.10<br>© Physicl Pipeline</div>
 </div>
 
 <div class="main">
@@ -84,7 +85,7 @@
 <div id="intro" class="section active">
     <div class="hero">
         <h1>Simready Tools</h1>
-        <p>A unified professional environment for scene assembly, interior population, and physics simulations in 3ds Max. Six powerful modules cover the entire pipeline — from painting with objects across surfaces to physics-based debris simulation.</p>
+        <p>A unified professional environment for scene assembly, interior population, and physics-based placement in 3ds Max. Seven modules cover the entire pipeline — from painting with objects across surfaces to dropping piles of products into containers with real physics.</p>
         <div class="hero-btns">
             <a href="https://drive.google.com/file/d/1L5QvnMOULUU_FBsIgRpRo17_A-IBhS5v/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ Download Script (.MS)</a>
             <a href="https://youtu.be/VzrFQNIhO_g" target="_blank" class="btn btn-red">▶ Video Tutorial</a>
@@ -92,13 +93,15 @@
     </div>
     <h2>Tool Modules:</h2>
     <div class="grid">
-        <div class="card"><h4>🎨 Object Painter</h4><p>Interactive painting with 3D assets on any surface with rotation/offset randomization. Hierarchy support and automatic source deletion.</p><span class="tag tag-orange">Interactive</span></div>
-        <div class="card"><h4>🔄 Replacer</h4><p>Batch replacement of proxy objects with final models while preserving position, rotation, and hierarchy. Random/Order modes.</p><span class="tag tag-green">Batch</span></div>
+        <div class="card"><h4>🎨 Object Painter</h4><p>Interactive painting with 3D assets on any surface with rotation/offset randomization. Hierarchy support, automatic source deletion and a quick "Turn 90" for the last placed object.</p><span class="tag tag-orange">Interactive</span></div>
+        <div class="card"><h4>🔄 Replacer</h4><p>Batch replacement of proxy objects with final models while preserving position, rotation, and hierarchy. Models standing on/in a replaced object are kept.</p><span class="tag tag-green">Batch</span></div>
         <div class="card"><h4>🌿 Scatter</h4><p>Random distribution of objects across surfaces via raycast. Scale, rotation, and normal alignment controls.</p><span class="tag tag-blue">Automatic</span></div>
-        <div class="card"><h4>📦 Shelf Tool</h4><p>Automatic product placement on shelves with size and gap calculations. Multi-level cabinet support and interactive Jitter.</p><span class="tag tag-orange">Interactive</span></div>
+        <div class="card"><h4>📦 Shelf Tool</h4><p>Automatic product placement on shelves as a grid, with size and gap calculations. Multi-level cabinet support and interactive Jitter.</p><span class="tag tag-orange">Interactive</span></div>
+        <div class="card"><h4>📚 Book Shelf</h4><p>Stands books, binders and organizers upright and fills each shelf compartment edge-to-edge, spines facing the room.</p><span class="tag tag-orange">Automatic</span></div>
         <div class="card"><h4>📊 PolyCount</h4><p>Polygon load analysis with sorting by weight. Quick identification of heavy objects for scene optimization.</p><span class="tag tag-blue">Analytics</span></div>
-        <div class="card"><h4>💥 MassFX Tools</h4><p>Create realistic debris piles through MassFX physics. Collision material presets, automatic Bake, and hierarchy fixing.</p><span class="tag tag-orange">Simulation</span></div>
+        <div class="card"><h4>💥 Physics Drop</h4><p>Drops a pile of models into a container or onto a surface with tyFlow PhysX and places real model copies at the resting positions.</p><span class="tag tag-orange">Simulation</span></div>
     </div>
+    <div class="note"><strong>ℹ️ Module windows:</strong> The main window has a button for each module. A button opens the module in its own window; pressing it again closes that window. Closing the main window closes all module windows.</div>
 </div>
 
 <!-- ==================== INSTALL ==================== -->
@@ -107,14 +110,18 @@
     <p class="subtitle">How to install and run Simready Tools in 3ds Max</p>
     <div class="doc">
         <h3>Method 1: Drag & Drop (Quick)</h3>
-        <div class="entry"><div class="lbl">Step 1</div><div class="info"><h4>Drag the file</h4><p>Drag the <strong>Nfinite-SimreadyTools.ms</strong> file directly into the 3ds Max viewport. The script will automatically register as a macroscript.</p></div></div>
-        <div class="entry"><div class="lbl">Step 2</div><div class="info"><h4>Assign a hotkey</h4><p>Open <strong>Customize → Customize User Interface → Keyboard</strong>. In the Category dropdown, find <strong>Nfinite</strong>, select <strong>SimreadyTools</strong>, and assign a convenient shortcut key.</p></div></div>
+        <div class="entry"><div class="lbl">Step 1</div><div class="info"><h4>Drag the file</h4><p>Drag the <strong>SimreadyTools.ms</strong> file directly into the 3ds Max viewport. The script will automatically register as a macroscript.</p></div></div>
+        <div class="entry"><div class="lbl">Step 2</div><div class="info"><h4>Assign a hotkey or button</h4><p>Open <strong>Customize → Customize User Interface</strong>. In the Category dropdown, find <strong>PHYSICL</strong>, select <strong>SimreadyTools</strong>, and assign a shortcut key or drag it onto a toolbar.</p></div></div>
     </div>
     <div class="doc">
         <h3>Method 2: Scripting → Run Script</h3>
-        <div class="entry"><div class="lbl">Step 1</div><div class="info"><h4>Run the script</h4><p>Open <strong>Scripting → Run Script...</strong> and select the <strong>Nfinite-SimreadyTools.ms</strong> file. The main window will appear.</p></div></div>
+        <div class="entry"><div class="lbl">Step 1</div><div class="info"><h4>Run the script</h4><p>Open <strong>Scripting → Run Script...</strong> and select the <strong>SimreadyTools.ms</strong> file. This registers the macroscript. Then launch it from the <strong>PHYSICL</strong> category as in Method 1.</p></div></div>
     </div>
-    <div class="note"><strong>💡 Tip:</strong> After the first launch, the script appears in the <strong>Nfinite</strong> category — you can add it to any toolbar or menu.</div>
+    <div class="doc">
+        <h3>Requirements</h3>
+        <div class="entry"><div class="lbl">tyFlow</div><div class="info"><h4>Needed for Physics Drop only</h4><p>The <strong>Physics Drop</strong> module runs on the free <strong>tyFlow</strong> plugin. Without it every other module works, and Physics Drop shows a message that tyFlow is not installed.</p></div></div>
+    </div>
+    <div class="warn"><strong>⚠️ Category changed:</strong> Since v2.9 the tool lives in the <strong>PHYSICL</strong> category (it was <strong>Nfinite</strong> before). Old toolbar buttons from the Nfinite category still work: they open the current version. Still, drag the button again from <strong>PHYSICL</strong>, because the old alias will be removed in a future version.</div>
 </div>
 
 <!-- ==================== PAINTER ==================== -->
@@ -124,38 +131,39 @@
 
     <div class="doc">
         <h3>1. Paint With — Object Source</h3>
-        <div class="entry"><div class="lbl">Source: Selected / List</div><div class="info"><h4>Where objects come from</h4><p><strong>Selected</strong> — the brush paints with whatever is selected in the viewport when you press START PAINTING. Best for quick work with 1-2 objects.</p><p><strong>List</strong> — objects are loaded into the Items table using the <strong>[+]</strong> button. Allows you to prepare a set in advance and change it without restarting.</p></div></div>
+        <div class="entry"><div class="lbl">Source: Selected / List</div><div class="info"><h4>Where objects come from</h4><p><strong>Selected</strong> — the brush paints with whatever is selected in the viewport when you press START PAINTING. Best for quick work with 1-2 objects.</p><p><strong>List</strong> (default) — objects are loaded into the Items table using the <strong>[+]</strong> button. Allows you to prepare a set in advance and change it without restarting.</p></div></div>
         <div class="entry"><div class="lbl">Pick: Order / Random</div><div class="info"><h4>Pick order</h4><p><strong>Order</strong> — objects from the list are dispensed in strict sequence (1→2→3→1→2→3...). Ideal for rhythmic placement (benches, lampposts).</p><p><strong>Random</strong> — each brush click randomly picks an object from the list. Ideal for organic population (books, decor, debris).</p></div></div>
-        <div class="entry"><div class="lbl">Mode: All / Selected</div><div class="info"><h4>Active filter</h4><p><strong>All</strong> — the brush uses all objects in the Items list.</p><p><strong>Selected</strong> — only highlighted rows in the Items table participate in painting. Convenient for temporarily limiting the set without removing items from the list.</p></div></div>
-        <div class="entry"><div class="lbl">Items: + / - / X / Sel</div><div class="info"><h4>List management</h4><p><strong>[+]</strong> — add selected objects to the list. <strong>[−]</strong> — remove selected rows. <strong>[X]</strong> — clear the entire list. <strong>[Sel]</strong> — select the listed objects in the viewport for review.</p></div></div>
+        <div class="entry"><div class="lbl">Mode: All / Selected</div><div class="info"><h4>Active filter</h4><p><strong>All</strong> — the brush uses all objects in the Items list.</p><p><strong>Selected</strong> — only highlighted rows in the Items table participate in painting. You can change the highlighted rows while painting.</p></div></div>
+        <div class="entry"><div class="lbl">Items: + / - / X / Sel</div><div class="info"><h4>List management</h4><p><strong>[+]</strong> — add selected objects to the list. <strong>[−]</strong> — remove selected rows. <strong>[X]</strong> — clear the entire list. <strong>[Sel]</strong> — select the listed objects in the viewport for review.</p><div class="tip">💡 [+] adds whole models, not their parts. For a model inside an AutoLink hierarchy, it takes the node directly under the <strong>*_POS</strong> helper. For other objects, it takes the topmost parent.</div></div></div>
     </div>
 
     <div class="doc">
         <h3>2. Paint On — Target Surfaces</h3>
-        <div class="entry"><div class="lbl">Target: Grid / Scene / List</div><div class="info"><h4>Where to paint</h4><p><strong>Grid</strong> — objects are placed on the construction grid. <strong>Scene</strong> — the brush works on any object in the scene. <strong>List</strong> — painting only on objects from the Surfaces list.</p></div></div>
-        <div class="entry"><div class="lbl">Elem Only</div><div class="info"><h4>Element mode</h4><p>The brush paints only on selected polygons. Select the polygons of a shelf surface → enable Elem Only → paint only on that shelf, ignoring the cabinet body and other surfaces.</p><div class="tip">💡 Before enabling Elem Only, select the desired polygons in Edit Poly mode on the target object.</div></div></div>
+        <div class="entry"><div class="lbl">Target: Grid / Scene / List</div><div class="info"><h4>Where to paint</h4><p><strong>Grid</strong> — objects are placed on the construction grid. <strong>Scene</strong> — the brush works on any object in the scene. <strong>List</strong> (default) — painting only on objects from the Surfaces list.</p></div></div>
+        <div class="entry"><div class="lbl">Elem Only</div><div class="info"><h4>Element mode</h4><p>The brush paints only on selected polygons. Select the polygons of a shelf surface → enable Elem Only → paint only on that shelf, ignoring the cabinet body and other surfaces. Works with Editable Poly and Editable Mesh, and only with Target: List.</p><div class="tip">💡 Before enabling Elem Only, select the desired polygons on the target object. The tool makes a temporary red copy of those polygons to paint on and deletes it when you finish.</div></div></div>
     </div>
 
     <div class="doc">
         <h3>3. Settings — Brush Parameters</h3>
-        <div class="entry"><div class="lbl">Spacing</div><div class="info"><h4>Brush step (cm)</h4><p>Minimum distance between objects when painting with a stroke. A value of 50 means objects will be placed no more than once every 5 cm.</p></div></div>
+        <div class="entry"><div class="lbl">Spacing</div><div class="info"><h4>Brush step</h4><p>Minimum distance between objects when painting with a stroke, in scene units. Default 50: objects are placed no closer than 50 units apart along the stroke.</p></div></div>
         <div class="entry"><div class="lbl">Offset</div><div class="info"><h4>Normal offset</h4><p>Raises or sinks the object relative to the surface. Positive values — the object floats above the surface; negative — it penetrates into it.</p></div></div>
         <div class="entry"><div class="lbl">Follow</div><div class="info"><h4>Follow stroke direction</h4><p>The object faces the direction of brush movement. Ideal for placing objects along a path.</p></div></div>
-        <div class="entry"><div class="lbl">Align / Z-Up / Flip</div><div class="info"><h4>Orientation</h4><p><strong>Align</strong> — align to the surface normal (object follows the slope).<br><strong>Z-Up</strong> — force the object to stand upright, even on sloped surfaces.<br><strong>Flip</strong> — flip the object upside down (useful for ceiling fixtures).</p></div></div>
-        <div class="entry"><div class="lbl">Auto-Delete Sources</div><div class="info"><h4>Auto-delete</h4><p>When enabled, the original source objects are deleted after painting completes. Keeps the scene clean without duplicates.</p></div></div>
+        <div class="entry"><div class="lbl">Align / Z-Up / Flip</div><div class="info"><h4>Orientation</h4><p><strong>Align</strong> — align to the surface normal (object follows the slope).</p><p><strong>Z-Up</strong> (on by default) — force the object to stand upright, even on sloped surfaces.</p><p><strong>Flip (Spot)</strong> — flip the object upside down (useful for ceiling fixtures).</p></div></div>
+        <div class="entry"><div class="lbl">Auto-Delete Sources</div><div class="info"><h4>Auto-delete</h4><p>On by default. When enabled, the original source objects are deleted after painting completes. Keeps the scene clean without duplicates.</p></div></div>
+        <div class="entry"><div class="lbl">Turn 90 (Last)</div><div class="info"><h4>Quick 90° turn</h4><p>While painting, rotates the <strong>last placed</strong> object +90° around its local Z axis. When you are not painting, it rotates the current selection. Click again for another 90°. Can be undone.</p></div></div>
     </div>
 
     <div class="doc">
         <h3>4. Randomizer — Chaos & Naturalness</h3>
-        <div class="entry"><div class="lbl">X / Y / Z (Position)</div><div class="info"><h4>Random offset</h4><p>Adds random positional offset with each click. The value represents the maximum deviation amplitude in centimeters.</p></div></div>
+        <div class="entry"><div class="lbl">X / Y / Z (Position)</div><div class="info"><h4>Random offset</h4><p>Adds random positional offset with each click. The value is the maximum offset in scene units.</p></div></div>
         <div class="entry"><div class="lbl">Rot X / Rot Y / Rot Z</div><div class="info"><h4>Random rotation</h4><p>Enables random rotation around the corresponding axis (0°–360°). <strong>Rot Z</strong> is the most important button: it rotates the object around the vertical axis, making placement look natural.</p><div class="tip">💡 For a natural look, enabling only Rot Z is usually enough. Add Rot X/Y only for chaotic scenes (debris, rubble).</div></div></div>
-        <div class="entry"><div class="lbl">Reset Randomizer</div><div class="info"><h4>Reset</h4><p>Resets all randomization values to zero.</p></div></div>
+        <div class="entry"><div class="lbl">Reset Randomizer</div><div class="info"><h4>Reset</h4><p>Resets all offsets to zero and turns off all Rot buttons.</p></div></div>
     </div>
 
     <div class="doc">
         <h3>5. Progress & Controls</h3>
         <div class="entry"><div class="lbl">Progress Label</div><div class="info"><h4>Progress counter</h4><p>Displays "Placed: N / Total" in real time. When all objects are placed, the message <strong>"ALL OBJECTS PLACED!"</strong> appears.</p></div></div>
-        <div class="entry"><div class="lbl">START PAINTING</div><div class="info"><h4>Start/Stop toggle</h4><p>Toggle button. Press once — the brush is active, click on surfaces to paint. Press again or hit Escape — painting ends, temporary groups are dissolved, original names are restored.</p></div></div>
+        <div class="entry"><div class="lbl">START PAINTING</div><div class="info"><h4>Start/Stop toggle</h4><p>Toggle button. Press once — the brush is active, click on surfaces to paint. Press again (STOP PAINTING) or hit <strong>Escape</strong> — painting ends, temporary groups are dissolved, original names are restored.</p><div class="tip">💡 Painted copies of a source that already sits inside a <strong>*_POS</strong> hierarchy are moved out to the scene root. That way they don't all pile up under one POS, and you can link them again with Create Hierarchy. Closing the window while painting also cleans up correctly.</div></div></div>
     </div>
 
     <div class="wf">
@@ -165,8 +173,8 @@
         <div class="step"><span class="step-n">3.</span> Select <strong>Target: List</strong> and add target surfaces (shelves, floor, table).</div>
         <div class="step"><span class="step-n">4.</span> Set <strong>Spacing</strong> (step distance) and <strong>Pick: Random</strong> for a natural look.</div>
         <div class="step"><span class="step-n">5.</span> Enable <strong>Rot Z</strong> in the Randomizer for random rotation.</div>
-        <div class="step"><span class="step-n">6.</span> Press <strong>START PAINTING</strong> and click/stroke across surfaces.</div>
-        <div class="step"><span class="step-n">7.</span> Press <strong>START PAINTING</strong> again or <strong>Escape</strong> to finish.</div>
+        <div class="step"><span class="step-n">6.</span> Press <strong>START PAINTING</strong> and click/stroke across surfaces. Use <strong>Turn 90 (Last)</strong> if an object lands facing the wrong way.</div>
+        <div class="step"><span class="step-n">7.</span> Press <strong>STOP PAINTING</strong> or <strong>Escape</strong> to finish.</div>
     </div>
 </div>
 
@@ -178,13 +186,15 @@
     <div class="doc">
         <h3>Replacement Sources — New Models</h3>
         <div class="entry"><div class="lbl">New Models List</div><div class="info"><h4>Replacement list</h4><p>Add the final models that will replace the proxies. Buttons <strong>[+] [−] [X] [Sel]</strong> — standard list management.</p></div></div>
-        <div class="entry"><div class="lbl">Pick Mode: Random / Order</div><div class="info"><h4>Selection mode</h4><p><strong>Random</strong> — each proxy is replaced with a random model from the list. Great for varied population.<br><strong>Order</strong> — models are assigned sequentially with wrapping (1→2→3→1→2→3...).</p></div></div>
+        <div class="entry"><div class="lbl">Pick Mode: Random / Order</div><div class="info"><h4>Selection mode</h4><p><strong>Random</strong> — each proxy is replaced with a random model from the list. Great for varied population.</p><p><strong>Order</strong> — models are assigned sequentially with wrapping (1→2→3→1→2→3...).</p></div></div>
     </div>
+
     <div class="doc">
         <h3>Targets to Replace — Replacement Targets</h3>
-        <div class="entry"><div class="lbl">Existing Models List</div><div class="info"><h4>Proxies to replace</h4><p>Add objects that need to be replaced. Each will be destroyed and a clone from Sources will appear at the same position (with the same transform and parent).</p></div></div>
-        <div class="entry"><div class="lbl">START REPLACEMENT</div><div class="info"><h4>Execute replacement</h4><p>Performs batch replacement in a single Undo block. Clones preserve position, rotation, and parent object of the original. A summary report is shown upon completion.</p></div></div>
+        <div class="entry"><div class="lbl">Existing Models List</div><div class="info"><h4>Proxies to replace</h4><p>Add objects that need to be replaced. Each will be deleted with its hierarchy, and a copy of a Source model appears in its place with the same transform and parent. Part names of the copy stay clean (no _001 suffixes).</p></div></div>
+        <div class="entry"><div class="lbl">START REPLACEMENT</div><div class="info"><h4>Execute replacement</h4><p>Replaces all targets in one step that you can undo in one go. A summary is shown when it finishes.</p><div class="tip">💡 Models placed <strong>on or inside</strong> a target (their own <strong>*_POS</strong> sub-hierarchies, e.g. boxes on a trolley) are not deleted. They are moved onto the replacement and stay exactly where they were. The summary says how many were kept.</div></div></div>
     </div>
+
     <div class="wf">
         <h2>📋 Workflow: Replacer</h2>
         <div class="step"><span class="step-n">1.</span> Place simple proxy boxes at the desired positions in the scene.</div>
@@ -204,18 +214,21 @@
         <h3>Objects to Scatter — Sources</h3>
         <div class="entry"><div class="lbl">Items List</div><div class="info"><h4>Objects to scatter</h4><p>Add models (grass, rocks, debris, etc.). During scattering, a random object from the list is cloned as an <strong>Instance</strong> (saving memory).</p></div></div>
     </div>
+
     <div class="doc">
         <h3>Surfaces — Target Surfaces</h3>
-        <div class="entry"><div class="lbl">Target Surfaces List</div><div class="info"><h4>Where to scatter</h4><p>Surfaces onto which objects will be scattered. Raycasts shoot top-down within the bounding box of all surfaces.</p></div></div>
+        <div class="entry"><div class="lbl">Target Surfaces List</div><div class="info"><h4>Where to scatter</h4><p>Surfaces onto which objects will be scattered. Rays are cast straight down inside the combined bounding box of all surfaces; if surfaces overlap, the highest hit is used.</p></div></div>
     </div>
+
     <div class="doc">
         <h3>Settings</h3>
-        <div class="entry"><div class="lbl">Count</div><div class="info"><h4>Number of objects</h4><p>Target number of objects to place (1–5000). Each object attempts up to 20 raycast tries to find a valid position.</p></div></div>
-        <div class="entry"><div class="lbl">Z Offset</div><div class="info"><h4>Height offset</h4><p>Raises or sinks objects in local coordinates. Useful for rocks (−2 cm to partially bury them).</p></div></div>
-        <div class="entry"><div class="lbl">Align to Normal</div><div class="info"><h4>Surface normal alignment</h4><p>Objects follow the surface slope (for hills). When disabled, objects always stand upright.</p></div></div>
-        <div class="entry"><div class="lbl">Random Z Rot</div><div class="info"><h4>Random rotation</h4><p>Each clone is rotated by a random 0°–360° angle around the Z axis.</p></div></div>
-        <div class="entry"><div class="lbl">Scale Min / Max</div><div class="info"><h4>Scale range</h4><p>Random uniform scale in percent (100 = original size). Example: Min 80, Max 120 = 80% to 120% of original size.</p></div></div>
+        <div class="entry"><div class="lbl">Count</div><div class="info"><h4>Number of objects</h4><p>Target number of objects to place (1–5000, default 50). Each object attempts up to 20 raycast tries to find a valid position.</p></div></div>
+        <div class="entry"><div class="lbl">Z Offset</div><div class="info"><h4>Height offset</h4><p>Raises or sinks objects along their local Z (−100 to 100 scene units). Useful for rocks — a small negative value partially buries them.</p></div></div>
+        <div class="entry"><div class="lbl">Align to Normal</div><div class="info"><h4>Surface normal alignment</h4><p>On by default. Objects follow the surface slope (for hills). When disabled, objects always stand upright.</p></div></div>
+        <div class="entry"><div class="lbl">Random Z Rot</div><div class="info"><h4>Random rotation</h4><p>On by default. Each clone is rotated by a random 0°–360° angle around its Z axis.</p></div></div>
+        <div class="entry"><div class="lbl">Scale Min / Max</div><div class="info"><h4>Scale range</h4><p>Random uniform scale in percent (10–500, 100 = original size). Example: Min 80, Max 120 = 80% to 120% of original size.</p></div></div>
     </div>
+
     <div class="wf">
         <h2>📋 Workflow: Scatter</h2>
         <div class="step"><span class="step-n">1.</span> Create a terrain surface (Plane, landscape mesh).</div>
@@ -223,11 +236,11 @@
         <div class="step"><span class="step-n">3.</span> Add the terrain to <strong>Surfaces</strong>.</div>
         <div class="step"><span class="step-n">4.</span> Set <strong>Count: 200</strong>, enable <strong>Align to Normal</strong> and <strong>Random Z Rot</strong>.</div>
         <div class="step"><span class="step-n">5.</span> Set <strong>Scale Min: 80, Max: 130</strong> for variation.</div>
-        <div class="step"><span class="step-n">6.</span> Press <strong>START SCATTER</strong>.</div>
+        <div class="step"><span class="step-n">6.</span> Press <strong>START SCATTER</strong>. The new objects are selected when it finishes.</div>
     </div>
 </div>
 
-<!-- ==================== SHELF TOOL ==================== -->
+<!-- ==================== SHELF ==================== -->
 <div id="shelf" class="section">
     <h1>📦 Shelf Tool</h1>
     <p class="subtitle">Automatic product placement on shelves with size calculations, gaps, and interactive Jitter</p>
@@ -235,40 +248,91 @@
     <div class="doc">
         <h3>1. Placement Targets — Shelves</h3>
         <div class="entry"><div class="lbl">Targets List</div><div class="info"><h4>Target shelf list</h4><p>Add one or more shelf objects. The tool processes each shelf sequentially. Supports Editable Poly/Mesh.</p></div></div>
-        <div class="entry"><div class="lbl">Fill All Levels</div><div class="info"><h4>Auto-detect levels</h4><p>Scans the cabinet via raycast and finds all horizontal planes (shelves) inside. Each level is filled separately.</p></div></div>
+        <div class="entry"><div class="lbl">Fill All Levels</div><div class="info"><h4>Auto-detect levels</h4><p>Scans the cabinet with rays and finds all horizontal surfaces (shelves) inside. Each level is filled separately. When it is off, only the top surface at the centre of the object is filled.</p></div></div>
         <div class="entry"><div class="lbl">Elem Only</div><div class="info"><h4>Element mode</h4><p>Fill only selected polygons. Select the polygons of a specific shelf → objects will only be placed there.</p></div></div>
     </div>
+
     <div class="doc">
         <h3>2. Objects to Array — Products</h3>
-        <div class="entry"><div class="lbl">Items List</div><div class="info"><h4>Objects to array</h4><p>Add product models. The <strong>▲ / ▼</strong> buttons sort by size (smallest to largest and vice versa).</p></div></div>
+        <div class="entry"><div class="lbl">Items List</div><div class="info"><h4>Objects to array</h4><p>Add product models. The <strong>▲ / ▼</strong> buttons sort them by footprint (smallest to largest and vice versa).</p></div></div>
         <div class="entry"><div class="lbl">Pattern: Order / Random</div><div class="info"><h4>Layout pattern</h4><p><strong>Order</strong> — strict product sequence (A-B-C-A-B-C). <strong>Random</strong> — random pick for each grid cell.</p></div></div>
     </div>
+
     <div class="doc">
         <h3>3. Array Settings — Grid</h3>
-        <div class="entry"><div class="lbl">Cols (X) / Rows (Y)</div><div class="info"><h4>Columns and rows count</h4><p>Define the array size. Cols = across the shelf width, Rows = along the shelf depth.</p></div></div>
-        <div class="entry"><div class="lbl">Calculate X / Y</div><div class="info"><h4>Auto-calculate</h4><p>Automatically calculates how many objects fit on the shelf based on the first item's width and the <strong>Gap</strong> value.</p></div></div>
-        <div class="entry"><div class="lbl">Depth (Z)</div><div class="info"><h4>Vertical stacking</h4><p>Number of "floors" of objects stacked on top of each other. Depth=2 means two stacks.</p></div></div>
-        <div class="entry"><div class="lbl">Gap (cm)</div><div class="info"><h4>Gap between objects</h4><p>Spacing between objects in centimeters. Default is 30mm. Increase for loose display, decrease for tight packing.</p></div></div>
+        <div class="entry"><div class="lbl">Cols (X) / Rows (Y)</div><div class="info"><h4>Columns and rows count</h4><p>Define the array size (defaults 5 × 1). Cols = across the shelf width, Rows = along the shelf depth.</p></div></div>
+        <div class="entry"><div class="lbl">Calculate X / Y</div><div class="info"><h4>Auto-calculate</h4><p>Calculates how many objects fit on the first shelf in Targets, based on the size of the first item in Items and the <strong>Gap</strong> value.</p></div></div>
+        <div class="entry"><div class="lbl">Depth (Z)</div><div class="info"><h4>Vertical stacking</h4><p>Number of layers of objects stacked on top of each other. Depth=2 means two layers.</p></div></div>
+        <div class="entry"><div class="lbl">Gap (cm)</div><div class="info"><h4>Gap between objects</h4><p>Spacing between objects, in scene units. Default is 30 (30 mm in a millimetre scene). Increase for loose display, decrease for tight packing.</p></div></div>
     </div>
+
     <div class="doc">
         <h3>4. Randomization & Orientation</h3>
-        <div class="entry"><div class="lbl">Pos Jitter / Rot Jitter</div><div class="info"><h4>Interactive Jitter</h4><p>Applied <strong>in real time</strong> to already-placed objects. Change the spinner values and objects move/rotate instantly. Results are deterministic (per-object seed).</p></div></div>
-        <div class="entry"><div class="lbl">+90° / -90° / 180°</div><div class="info"><h4>Quick rotation</h4><p>Rotates the entire array by 90° or 180°. Use when products face sideways after Fill Shelf.</p></div></div>
+        <div class="entry"><div class="lbl">Pos Jitter / Rot Jitter</div><div class="info"><h4>Interactive Jitter</h4><p>Defaults 0.1 and 2°. Applied in real time to the objects from the last fill. Change the values and objects move/rotate instantly. Each object keeps its own random seed, so the same value always gives the same result.</p></div></div>
+        <div class="entry"><div class="lbl">+90° / -90° / 180°</div><div class="info"><h4>Quick rotation</h4><p>Rotates every object from the last fill around its own Z axis by 90° or 180°. Use when products face sideways after Fill Shelf.</p></div></div>
     </div>
+
     <div class="doc">
         <h3>5. Actions</h3>
-        <div class="entry"><div class="lbl">FILL SHELF</div><div class="info"><h4>Fill the shelf</h4><p>Creates an array of clones (Instance) on each target shelf. Objects are centered on the shelf and distributed across the grid.</p></div></div>
+        <div class="entry"><div class="lbl">FILL SHELF</div><div class="info"><h4>Fill the shelf</h4><p>Creates an array of clones (Instance) on each target shelf. Objects are centered on the shelf and distributed across the grid. Part names of the clones stay clean. A shelf that is flat to within 0.8° is treated as perfectly flat, so long rows don't slowly rise or sink.</p></div></div>
         <div class="entry"><div class="lbl">UNDO</div><div class="info"><h4>Undo fill</h4><p>Deletes all objects from the last fill operation. If pressed again, triggers the standard 3ds Max Undo.</p></div></div>
     </div>
+
     <div class="wf">
         <h2>📋 Workflow: Shelf Tool</h2>
-        <div class="step"><span class="step-n">1.</span> Select the cabinet/shelf and add it to <strong>Targets</strong> using the [+] button.</div>
+        <div class="step"><span class="step-n">1.</span> Select the cabinet/shelf and add it to <strong>Targets</strong> using the <strong>[+]</strong> button.</div>
         <div class="step"><span class="step-n">2.</span> Add product models to the <strong>Items</strong> list.</div>
-        <div class="step"><span class="step-n">3.</span> Set <strong>Gap: 30</strong> and press <strong>Calculate X</strong> and <strong>Calculate Y</strong>.</div>
-        <div class="step"><span class="step-n">4.</span> Press <strong>FILL SHELF</strong>.</div>
-        <div class="step"><span class="step-n">5.</span> If products face sideways, press <strong>+90°</strong> or <strong>-90°</strong>.</div>
-        <div class="step"><span class="step-n">6.</span> Adjust <strong>Pos Jitter</strong> and <strong>Rot Jitter</strong> for a natural look.</div>
-        <div class="step"><span class="step-n">7.</span> Enable <strong>Fill All Levels</strong> to fill the entire cabinet.</div>
+        <div class="step"><span class="step-n">3.</span> Set <strong>Gap</strong> and press <strong>Calculate X</strong> and <strong>Calculate Y</strong>.</div>
+        <div class="step"><span class="step-n">4.</span> Enable <strong>Fill All Levels</strong> if the whole cabinet should be filled.</div>
+        <div class="step"><span class="step-n">5.</span> Press <strong>FILL SHELF</strong>.</div>
+        <div class="step"><span class="step-n">6.</span> If products face sideways, press <strong>+90°</strong> or <strong>-90°</strong>.</div>
+        <div class="step"><span class="step-n">7.</span> Adjust <strong>Pos Jitter</strong> and <strong>Rot Jitter</strong> for a natural look.</div>
+    </div>
+</div>
+
+<!-- ==================== BOOK SHELF ==================== -->
+<div id="bookshelf" class="section">
+    <h1>📚 Book Shelf</h1>
+    <p class="subtitle">Stand books, binders and organizers upright and fill each shelf compartment, spines facing out</p>
+
+    <div class="note"><strong>ℹ️ How it differs from Shelf Tool:</strong> Shelf Tool lays items out as a grid. Book Shelf builds a single row per compartment. It turns every item upright by itself, measures its real thickness, and packs the items edge-to-edge until the compartment is full. You don't set a column count.</div>
+
+    <div class="doc">
+        <h3>1. Placement Targets — Shelves</h3>
+        <div class="entry"><div class="lbl">Targets List</div><div class="info"><h4>Target shelves</h4><p>Add one or more shelf or cabinet objects. Supports Editable Poly/Mesh.</p></div></div>
+        <div class="entry"><div class="lbl">Fill All Levels</div><div class="info"><h4>Every shelf of the cabinet</h4><p>Finds all horizontal shelves inside the cabinet and fills each one. The cabinet's outer top is skipped automatically, even when the top panel is a separate mesh of the same model.</p></div></div>
+        <div class="entry"><div class="lbl">Elem Only</div><div class="info"><h4>Selected polygons only</h4><p>Fill only the shelves whose polygons are selected on the target object.</p></div></div>
+    </div>
+
+    <div class="doc">
+        <h3>2. Objects to Array — Books</h3>
+        <div class="entry"><div class="lbl">Items List</div><div class="info"><h4>Books to place</h4><p>Add book, binder or organizer models. <strong>▲ / ▼</strong> sort them by footprint.</p></div></div>
+        <div class="entry"><div class="lbl">Pattern: Order / Random</div><div class="info"><h4>Sequence</h4><p><strong>Order</strong> — items follow the list in sequence. <strong>Random</strong> — a random item for each slot.</p></div></div>
+    </div>
+
+    <div class="doc">
+        <h3>3. Spacing & Orientation</h3>
+        <div class="entry"><div class="lbl">Gap (cm)</div><div class="info"><h4>Gap between books</h4><p>Distance between neighbouring books, in scene units. <strong>0</strong> = packed tight. Default 30.</p></div></div>
+        <div class="entry"><div class="lbl">+90° / -90° / 180°</div><div class="info"><h4>Quick rotation</h4><p>Rotates every book from the last fill around its own Z axis.</p></div></div>
+    </div>
+
+    <div class="doc">
+        <h3>4. What happens on FILL SHELF</h3>
+        <div class="entry"><div class="lbl">Upright</div><div class="info"><h4>Automatic orientation</h4><p>Each book is turned so its tallest side points up, its thinnest side runs along the shelf, and the middle side goes into the depth of the shelf.</p></div></div>
+        <div class="entry"><div class="lbl">Run direction</div><div class="info"><h4>Along the longer side</h4><p>The row runs along the longer horizontal side of the shelf. A cabinet rotated 90° still fills along its width.</p></div></div>
+        <div class="entry"><div class="lbl">Spines out</div><div class="info"><h4>Facing the room</h4><p>The tool finds the open side of the shelf (away from the back panel) and turns each book so its front/spine edge (where its helper sits) faces out.</p></div></div>
+        <div class="entry"><div class="lbl">Compartments</div><div class="info"><h4>Respects dividers</h4><p>Each shelf is split into compartments between side walls and dividers, and each compartment is filled on its own. Books don't pack across a partition.</p></div></div>
+        <div class="entry"><div class="lbl">Seating</div><div class="info"><h4>Exactly on the board</h4><p>Every book is centred in the depth of the shelf and set exactly on the shelf surface, so it neither floats nor sinks into it.</p></div></div>
+        <div class="entry"><div class="lbl">UNDO</div><div class="info"><h4>Undo fill</h4><p>Deletes all books from the last fill, together with their hierarchies. Pressed again, it runs the standard 3ds Max Undo.</p></div></div>
+    </div>
+
+    <div class="wf">
+        <h2>📋 Workflow: Book Shelf</h2>
+        <div class="step"><span class="step-n">1.</span> Add the bookcase or rack to <strong>Targets</strong>.</div>
+        <div class="step"><span class="step-n">2.</span> Add the book/binder models to <strong>Items</strong>.</div>
+        <div class="step"><span class="step-n">3.</span> Enable <strong>Fill All Levels</strong> (or select shelf polygons and use <strong>Elem Only</strong>).</div>
+        <div class="step"><span class="step-n">4.</span> Set <strong>Gap</strong> (0 for a tight row).</div>
+        <div class="step"><span class="step-n">5.</span> Press <strong>FILL SHELF</strong>. Use <strong>180°</strong> if a whole fill faces the wrong way.</div>
     </div>
 </div>
 
@@ -279,53 +343,55 @@
 
     <div class="doc">
         <h3>Parameters</h3>
-        <div class="entry"><div class="lbl">Scope: Selected / Scene</div><div class="info"><h4>Scan scope</h4><p><strong>Selected</strong> — analyzes only selected objects. <strong>Scene</strong> — scans all objects in the scene.</p></div></div>
-        <div class="entry"><div class="lbl">REFRESH LIST</div><div class="info"><h4>Refresh data</h4><p>Recalculates polygon counts and sorts the list from heaviest to lightest. Format: <strong>"Polycount | Object Name"</strong>.</p></div></div>
+        <div class="entry"><div class="lbl">Scope: Selected / Scene</div><div class="info"><h4>Scan scope</h4><p><strong>Selected</strong> — analyzes only selected objects. <strong>Scene</strong> — scans all objects in the scene. Switching the scope refreshes the list.</p></div></div>
+        <div class="entry"><div class="lbl">REFRESH LIST</div><div class="info"><h4>Refresh data</h4><p>Recalculates polygon counts and sorts the list from heaviest to lightest. Format: <strong>"Polycount | Object Name"</strong>. The list also refreshes when the window opens.</p></div></div>
         <div class="entry"><div class="lbl">Object List</div><div class="info"><h4>Interactive selection</h4><p>Click a row — the object is selected in the viewport. Multi-selection is supported. Use it to quickly navigate to problematic objects.</p></div></div>
     </div>
     <div class="note"><strong>💡 Tip:</strong> Run PolyCount after Scatter/Painter to check if you've overloaded the scene with heavy models. Objects with 50,000+ polygons should be optimized.</div>
 </div>
 
-<!-- ==================== MASSFX ==================== -->
-<div id="massfx" class="section">
-    <h1>💥 MassFX Tools</h1>
-    <p class="subtitle">Create realistic debris piles and heaps using MassFX physics simulation</p>
+<!-- ==================== PHYSICS DROP ==================== -->
+<div id="drop" class="section">
+    <h1>💥 Physics Drop</h1>
+    <p class="subtitle">Drop a pile of models into a container or onto a surface with tyFlow physics</p>
+
+    <div class="warn"><strong>⚠️ Replaces MassFX Tools:</strong> The old MassFX module has been removed. Physics Drop needs the free <strong>tyFlow</strong> plugin. It does not add physics modifiers to your models: it simulates simple stand-ins, then places real model copies where the stand-ins came to rest.</div>
 
     <div class="doc">
-        <h3>1. Dynamic Objects — Falling</h3>
-        <div class="entry"><div class="lbl">Items List</div><div class="info"><h4>Simulation objects</h4><p>Add objects that will fall and collide. Hierarchies are supported — the script automatically finds all meshes inside.</p></div></div>
-        <div class="entry"><div class="lbl">Mesh Quality</div><div class="info"><h4>Collision accuracy</h4><p>Physics mesh resolution (4–256). <strong>128</strong> is the standard for most objects. <strong>256</strong> for complex shapes with cavities (cups, vases). Higher = more accurate but slower.</p></div></div>
-        <div class="entry"><div class="lbl">Material Preset</div><div class="info"><h4>Physics material</h4><p>Affects friction and bounce: <strong>Cardboard</strong> (dull impact), <strong>Wood</strong> (medium bounce), <strong>Rubber</strong> (high bounce), <strong>Glass</strong> (slippery). Choose according to the real-world material.</p></div></div>
+        <h3>1. Models to scatter</h3>
+        <div class="entry"><div class="lbl">Models</div><div class="info"><h4>What falls</h4><p>Add the models to drop. Each selected object is resolved to its whole model, so you can click any part of it. Multi-part models fall as one piece.</p></div></div>
     </div>
+
     <div class="doc">
-        <h3>2. Static Objects — Surfaces</h3>
-        <div class="entry"><div class="lbl">Surfaces List</div><div class="info"><h4>Immovable objects</h4><p>Floor, table, shelves — surfaces that dynamic objects will collide with. Uses <strong>Original Mesh</strong> for precise collisions.</p></div></div>
-        <div class="entry"><div class="lbl">Material Preset</div><div class="info"><h4>Surface material</h4><p>Determines surface friction. <strong>Concrete</strong> (default) — good grip. <strong>Ice</strong> — slippery.</p></div></div>
+        <h3>2. Container / surface</h3>
+        <div class="entry"><div class="lbl">Colliders</div><div class="info"><h4>What they land in/on</h4><p>Add the jar, basket, crate, shelf or floor the models should land in or on. If you add a group or helper, the meshes inside it are added.</p></div></div>
+        <div class="entry"><div class="lbl">Birth area</div><div class="info"><h4>Where objects spawn (optional)</h4><p>By default, objects spawn above the colliders from an area half the size of the container, centred over it. Pick your own object instead (e.g. a plane tilted to match a sloped shelf) so every object falls the same distance. <strong>clear</strong> returns to the automatic area.</p><div class="tip">💡 Make a custom area clearly smaller than the opening (about half). Objects that spawn over the rim roll off and are lost. The tilt itself is fine.</div></div></div>
     </div>
+
     <div class="doc">
-        <h3>3. Global Settings — World</h3>
-        <div class="entry"><div class="lbl">Substeps / Solver Iter</div><div class="info"><h4>Simulation accuracy</h4><p><strong>Substeps</strong> (3) — number of intermediate steps. Increase to 5–10 if objects fall through the floor.<br><strong>Solver Iter</strong> (20) — solver iterations. Increase for dense piles.</p></div></div>
-        <div class="entry"><div class="lbl">Contact Dist / Rest Depth</div><div class="info"><h4>Contact parameters</h4><p>Fine-tuning the collision detection distance. Increase Contact Dist if objects interpenetrate.</p></div></div>
-        <div class="entry"><div class="lbl">Use Ground / Alt</div><div class="info"><h4>Ground plane</h4><p>Enables an infinite ground plane at height <strong>Alt</strong> (default 0). Prevents objects from falling into the void.</p></div></div>
+        <h3>3. Settings</h3>
+        <div class="entry"><div class="lbl">Count</div><div class="info"><h4>How many</h4><p>Number of objects to drop (1–2000, default 24). Above 250 you are asked to confirm, because the simulation can take minutes.</p></div></div>
+        <div class="entry"><div class="lbl">Gap</div><div class="info"><h4>Clearance</h4><p>Space kept between neighbours (default 3 scene units). The simulated stand-ins are inflated by Gap/2; the final models are not.</p></div></div>
+        <div class="entry"><div class="lbl">Frames</div><div class="info"><h4>Settle time</h4><p>How many frames the pile has to settle (30–900, default 120). Raise it if the status line reports many skipped objects.</p></div></div>
+        <div class="entry"><div class="lbl">Seed</div><div class="info"><h4>Variation</h4><p>Change it to get a different pile with the same settings.</p></div></div>
+        <div class="entry"><div class="lbl">Helper size</div><div class="info"><h4>Helper size on placed models</h4><p><strong>30</strong> for small items (grapes, coffee beans), <strong>50</strong> (default) for medium (tomatoes, cups), <strong>200</strong> for large (watermelons). Too small and the helper hides inside the mesh; too large and neighbouring helpers overlap, so you can't click the one you want.</p></div></div>
     </div>
+
     <div class="doc">
-        <h3>4. Simulation Controls</h3>
-        <div class="entry"><div class="lbl">PREPARE SIMULATION</div><div class="info"><h4>Preparation</h4><p>Adds MassFX_RBody modifiers to all objects. Dynamic = Convex Hull, Static = Original Mesh. Enables control buttons.</p></div></div>
-        <div class="entry"><div class="lbl">Play / Pause</div><div class="info"><h4>Run physics</h4><p>Starts the simulation in real time. Press again to pause.</p></div></div>
-        <div class="entry"><div class="lbl">Stop</div><div class="info"><h4>Capture + Auto Fix</h4><p>Stops the simulation and <strong>automatically</strong> fixes hierarchies — _POS helpers are moved to the final mesh positions. This is critical for the Simready pipeline.</p></div></div>
-        <div class="entry"><div class="lbl">Reset</div><div class="info"><h4>Return to start</h4><p>Returns all objects to their initial positions (before the simulation started).</p></div></div>
-        <div class="entry"><div class="lbl">Bake</div><div class="info"><h4>Bake animation</h4><p>Converts the physics simulation into animation keyframes for rendering.</p></div></div>
+        <h3>4. Controls</h3>
+        <div class="entry"><div class="lbl">DROP & BAKE</div><div class="info"><h4>Run</h4><p>Builds the simulation, plays it, and places a copy of the matching model at each object that came to rest (geometry as instances, helpers as copies). Objects still moving at the end are skipped. Everything temporary is deleted afterwards, and the timeline and playback settings are restored. Press <strong>Esc</strong> to stop; nothing is placed.</p></div></div>
+        <div class="entry"><div class="lbl">RESET</div><div class="info"><h4>Remove last drop</h4><p>Deletes everything the last DROP & BAKE placed, and only that; earlier drops stay.</p></div></div>
+        <div class="entry"><div class="lbl">Status line</div><div class="info"><h4>Result</h4><p>Shows "Placed N, skipped M (time)" after a run.</p></div></div>
     </div>
+
     <div class="wf">
-        <h2>📋 Workflow: MassFX</h2>
-        <div class="step"><span class="step-n">1.</span> Add falling objects to <strong>Dynamic Objects</strong>.</div>
-        <div class="step"><span class="step-n">2.</span> Add the floor/table surface to <strong>Static Objects</strong>.</div>
-        <div class="step"><span class="step-n">3.</span> Select the <strong>Material Preset</strong> (Cardboard for boxes, Wood for planks, etc.).</div>
-        <div class="step"><span class="step-n">4.</span> Press <strong>PREPARE SIMULATION</strong>.</div>
-        <div class="step"><span class="step-n">5.</span> Press <strong>Play</strong> — watch the objects fall.</div>
-        <div class="step"><span class="step-n">6.</span> When satisfied with the result, press <strong>Stop</strong> (auto-fixes hierarchies).</div>
-        <div class="step"><span class="step-n">7.</span> If needed, press <strong>Bake</strong> to save the animation.</div>
-        <div class="step"><span class="step-n">8.</span> Press <strong>STOP SIMULATION</strong> to remove physics modifiers.</div>
+        <h2>📋 Workflow: Physics Drop</h2>
+        <div class="step"><span class="step-n">1.</span> Add the models to <strong>Models to scatter</strong>.</div>
+        <div class="step"><span class="step-n">2.</span> Add the container or surface to <strong>Colliders</strong>.</div>
+        <div class="step"><span class="step-n">3.</span> Optional: pick a custom <strong>Birth area</strong> for sloped shelves.</div>
+        <div class="step"><span class="step-n">4.</span> Set <strong>Count</strong>, <strong>Gap</strong> and <strong>Helper size</strong>.</div>
+        <div class="step"><span class="step-n">5.</span> Press <strong>DROP & BAKE</strong> and wait for the status line.</div>
+        <div class="step"><span class="step-n">6.</span> Not happy? <strong>RESET</strong>, change <strong>Seed</strong> or <strong>Frames</strong>, and run again.</div>
     </div>
 </div>
 
@@ -337,8 +403,8 @@
     <div class="wf">
         <h2>🏪 Scenario 1: Populating a Store Shelf</h2>
         <div class="step"><span class="step-n">1.</span> Import the cabinet/shelf rack model into the scene.</div>
-        <div class="step"><span class="step-n">2.</span> Open <strong>Shelf Tool</strong> → add the rack to <strong>Targets</strong>.</div>
-        <div class="step"><span class="step-n">3.</span> Import product models → add them to <strong>Items</strong>.</div>
+        <div class="step"><span class="step-n">2.</span> Open <strong>Shelf Tool</strong> → add the rack to Targets.</div>
+        <div class="step"><span class="step-n">3.</span> Import product models → add them to Items.</div>
         <div class="step"><span class="step-n">4.</span> Enable <strong>Fill All Levels</strong> to fill every shelf.</div>
         <div class="step"><span class="step-n">5.</span> Press <strong>Calculate X/Y</strong> → <strong>FILL SHELF</strong>.</div>
         <div class="step"><span class="step-n">6.</span> Rotate products using <strong>+90°/-90°</strong> if needed.</div>
@@ -347,22 +413,29 @@
     </div>
 
     <div class="wf">
-        <h2>🗑️ Scenario 2: Debris Pile (MassFX)</h2>
-        <div class="step"><span class="step-n">1.</span> Prepare objects for the pile (boxes, planks, trash).</div>
-        <div class="step"><span class="step-n">2.</span> Position them above the target surface (raise by 50–100 cm).</div>
-        <div class="step"><span class="step-n">3.</span> Use <strong>Scatter</strong> to pre-distribute objects above the surface.</div>
-        <div class="step"><span class="step-n">4.</span> Open <strong>MassFX Tools</strong> → add objects to Dynamic, the floor to Static.</div>
-        <div class="step"><span class="step-n">5.</span> Select material <strong>Cardboard</strong>, increase <strong>Substeps: 5</strong>.</div>
-        <div class="step"><span class="step-n">6.</span> <strong>PREPARE SIMULATION → Play → Stop</strong> when satisfied.</div>
-        <div class="step"><span class="step-n">7.</span> Hierarchies are automatically fixed — the scene is ready for export.</div>
+        <h2>📚 Scenario 2: Filling a Bookcase or Archive Rack</h2>
+        <div class="step"><span class="step-n">1.</span> Open <strong>Book Shelf</strong> → add the bookcase to Targets.</div>
+        <div class="step"><span class="step-n">2.</span> Add several book/binder models to Items, choose <strong>Random</strong>.</div>
+        <div class="step"><span class="step-n">3.</span> Enable <strong>Fill All Levels</strong>, set <strong>Gap: 0</strong> for a tight row.</div>
+        <div class="step"><span class="step-n">4.</span> Press <strong>FILL SHELF</strong> — every compartment is filled, spines facing out.</div>
+        <div class="step"><span class="step-n">5.</span> Remove a few books by hand for a lived-in look.</div>
     </div>
 
     <div class="wf">
-        <h2>🔄 Scenario 3: Replacing Proxies with Final Models</h2>
-        <div class="step"><span class="step-n">1.</span> Place simple proxy boxes on shelves using <strong>Shelf Tool</strong> or <strong>Painter</strong>.</div>
+        <h2>🍎 Scenario 3: A Pile in a Container (Physics Drop)</h2>
+        <div class="step"><span class="step-n">1.</span> Place the container (bowl, jar, crate) in the scene.</div>
+        <div class="step"><span class="step-n">2.</span> Open <strong>Physics Drop</strong> → add the fruit/product models to Models.</div>
+        <div class="step"><span class="step-n">3.</span> Add the container to <strong>Colliders</strong>.</div>
+        <div class="step"><span class="step-n">4.</span> Set <strong>Count</strong> and a matching <strong>Helper size</strong> (30 / 50 / 200).</div>
+        <div class="step"><span class="step-n">5.</span> <strong>DROP & BAKE</strong>. If objects are skipped, raise <strong>Frames</strong> and try again.</div>
+    </div>
+
+    <div class="wf">
+        <h2>🔄 Scenario 4: Replacing Proxies with Final Models</h2>
+        <div class="step"><span class="step-n">1.</span> Place simple proxy boxes on shelves using Shelf Tool or Painter.</div>
         <div class="step"><span class="step-n">2.</span> Import high-poly final models.</div>
-        <div class="step"><span class="step-n">3.</span> Open <strong>Replacer</strong> → add final models to <strong>Sources</strong>.</div>
-        <div class="step"><span class="step-n">4.</span> Select all proxy boxes → add them to <strong>Targets</strong>.</div>
+        <div class="step"><span class="step-n">3.</span> Open <strong>Replacer</strong> → add final models to Sources.</div>
+        <div class="step"><span class="step-n">4.</span> Select all proxy boxes → add them to Targets.</div>
         <div class="step"><span class="step-n">5.</span> Select <strong>Random</strong> → <strong>START REPLACEMENT</strong>.</div>
         <div class="step"><span class="step-n">6.</span> Verify the result via <strong>PolyCount</strong> — make sure the scene isn't overloaded.</div>
     </div>
@@ -377,9 +450,33 @@
         <h3>Common Questions</h3>
         <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Painter doesn't paint — empty clicks</h4><p>Make sure <strong>Target: List</strong> is selected and surfaces are added. If <strong>Elem Only</strong> is enabled, polygons must be pre-selected on the target object.</p></div></div>
         <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Shelf Tool places objects sideways</h4><p>Press <strong>+90°</strong> or <strong>-90°</strong> after FILL SHELF. The rotation is applied instantly to the entire array.</p></div></div>
-        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>MassFX — objects fall through</h4><p>Increase <strong>Substeps</strong> to 5-10. Make sure the floor surface is added to <strong>Static Objects</strong> or <strong>Use Ground</strong> is enabled.</p></div></div>
+        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Physics Drop says "tyFlow is not installed"</h4><p>Install the free tyFlow plugin for your 3ds Max version and restart Max. The other modules don't need it.</p></div></div>
+        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Physics Drop skips many objects</h4><p>Raise <strong>Frames</strong> so the pile has time to settle. Make sure the <strong>Birth area</strong> is smaller than the opening, and lower <strong>Count</strong> if the container is simply too small.</p></div></div>
+        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Where is MassFX Tools?</h4><p>It was replaced by <strong>Physics Drop</strong>, which uses tyFlow instead of MassFX.</p></div></div>
+        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>I can't find the tool under Nfinite</h4><p>Since v2.9 it is in the <strong>PHYSICL</strong> category. Old Nfinite buttons still open the current version, but set up the button again from PHYSICL.</p></div></div>
         <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Scatter doesn't place all objects</h4><p>Objects find positions via raycast (up to 20 attempts). If the surface is small and Count is large, many may fail to find a spot.</p></div></div>
-        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Can I undo actions?</h4><p>All operations are wrapped in an <strong>Undo</strong> block. Use Ctrl+Z or the <strong>UNDO</strong> button in Shelf Tool.</p></div></div>
+        <div class="entry"><div class="lbl">Question</div><div class="info"><h4>Can I undo actions?</h4><p>All operations are wrapped in an <strong>Undo</strong> block. Use Ctrl+Z, the <strong>UNDO</strong> button in Shelf Tool / Book Shelf, or <strong>RESET</strong> in Physics Drop.</p></div></div>
+    </div>
+</div>
+
+<!-- ==================== WHAT'S NEW ==================== -->
+<div id="changes" class="section">
+    <h1>🆕 What's New</h1>
+    <p class="subtitle">Changes since the v2.3 guide</p>
+
+    <div class="doc">
+        <h3>v2.10</h3>
+        <div class="entry"><div class="lbl">Book Shelf</div><div class="info"><h4>No more mirrored books</h4><p>Placed books are never mirrored and sit exactly on the shelf. This fixes the "doesn't match its POS parent" and intersection errors reported by Viser on binder racks.</p></div></div>
+    </div>
+    <div class="doc">
+        <h3>v2.9 and earlier</h3>
+        <div class="entry"><div class="lbl">Category</div><div class="info"><h4>Nfinite → PHYSICL</h4><p>The macroscript moved to the PHYSICL category. Old Nfinite buttons forward to the new version.</p></div></div>
+        <div class="entry"><div class="lbl">New module</div><div class="info"><h4>📚 Book Shelf</h4><p>Upright books, compartments, spines facing out.</p></div></div>
+        <div class="entry"><div class="lbl">New module</div><div class="info"><h4>💥 Physics Drop</h4><p>tyFlow-based piles; replaces MassFX Tools.</p></div></div>
+        <div class="entry"><div class="lbl">Painter</div><div class="info"><h4>Turn 90 (Last), POS-aware</h4><p>New <strong>Turn 90 (Last)</strong> button; painted copies are moved out of *_POS hierarchies; closing the window while painting cleans up.</p></div></div>
+        <div class="entry"><div class="lbl">Replacer</div><div class="info"><h4>Keeps nested models</h4><p>Models standing on/in a replaced object are moved onto the replacement instead of being deleted.</p></div></div>
+        <div class="entry"><div class="lbl">All modules</div><div class="info"><h4>Clean names, whole models</h4><p>[+] adds the whole model (AutoLink-aware); clones keep clean part names without _001 suffixes.</p></div></div>
+        <div class="entry"><div class="lbl">Shelf Tool</div><div class="info"><h4>Flat rows</h4><p>Near-flat shelves are treated as perfectly flat, so long rows no longer slowly rise or sink.</p></div></div>
     </div>
 </div>
 
