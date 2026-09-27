@@ -27,7 +27,7 @@
         .hero{background:linear-gradient(135deg,#1a1a1a,#0a0a0a);padding:40px;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:32px;position:relative;overflow:hidden}
         .hero::after{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,152,0,.08),transparent);border-radius:50%}
         .hero h1{color:var(--accent);font-size:2rem;margin-bottom:8px}.hero p{color:var(--muted);font-size:1rem;line-height:1.6;max-width:600px}
-        .hero-btns{margin-top:20px;display:flex;gap:12px;position:relative;z-index:1}
+        .hero-btns{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
         .btn{padding:10px 24px;border-radius:20px;font-weight:700;text-decoration:none;display:inline-block;font-size:.85rem;transition:.2s}
         .btn-orange{background:var(--accent);color:#000}.btn-orange:hover{background:var(--accent2)}
         .btn-red{background:var(--red);color:#fff}.btn-red:hover{opacity:.85}
@@ -87,7 +87,8 @@
         <h1>Simready Tools</h1>
         <p>Единая профессиональная среда для сборки сцен, наполнения интерьеров и физической расстановки объектов в 3ds Max. Семь модулей покрывают весь пайплайн — от рисования объектами по поверхностям до физического сброса кучи товаров в контейнер.</p>
         <div class="hero-btns">
-            <a href="https://drive.google.com/file/d/1L5QvnMOULUU_FBsIgRpRo17_A-IBhS5v/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ Скачать скрипт (.MS)</a>
+            <a href="https://drive.google.com/file/d/1DvLXA-gFLAvknxVop-Sn_5TE2fIkVt0L/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ Скачать скрипт (.MS)</a>
+            <a href="https://drive.google.com/file/d/1D-a1LJP2zLQrugBy4rTbV6PfP7oyCfZR/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ tyFlow для Max 2022 (.DLO)</a>
             <a href="https://youtu.be/VzrFQNIhO_g" target="_blank" class="btn btn-red">▶ Видеоурок</a>
         </div>
     </div>
@@ -119,7 +120,7 @@
     </div>
     <div class="doc">
         <h3>Требования</h3>
-        <div class="entry"><div class="lbl">tyFlow</div><div class="info"><h4>Нужен только для Physics Drop</h4><p>Модуль <strong>Physics Drop</strong> работает на бесплатном плагине <strong>tyFlow</strong>. Без него все остальные модули работают, а Physics Drop сообщит, что tyFlow не установлен.</p></div></div>
+        <div class="entry"><div class="lbl">tyFlow</div><div class="info"><h4>Нужен только для Physics Drop</h4><p>Модуль <strong>Physics Drop</strong> работает на бесплатном плагине <strong>tyFlow</strong>. Без него все остальные модули работают, а Physics Drop сообщит, что tyFlow не установлен.</p><p>Для <strong>3ds Max 2022</strong>: скачайте <a href="https://drive.google.com/file/d/1D-a1LJP2zLQrugBy4rTbV6PfP7oyCfZR/view?usp=drive_link" target="_blank" style="color:var(--accent)">tyFlow_2022.dlo</a>, закройте 3ds Max, скопируйте файл в папку <strong>Plugins</strong> установки 3ds Max (например, <strong>C:\Program Files\Autodesk\3ds Max 2022\Plugins</strong>) и снова запустите Max.</p><div class="tip">💡 Этот файл работает только в 3ds Max 2022. Для других версий Max нужна сборка tyFlow под соответствующую версию.</div></div></div>
     </div>
     <div class="warn"><strong>⚠️ Категория изменилась:</strong> С версии v2.9 инструмент находится в категории <strong>PHYSICL</strong> (раньше была <strong>Nfinite</strong>). Старые кнопки из категории Nfinite продолжают работать и открывают текущую версию. Но всё равно перетащите кнопку заново из <strong>PHYSICL</strong>: старый алиас удалят в одной из следующих версий.</div>
 </div>

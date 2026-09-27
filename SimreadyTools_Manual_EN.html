@@ -27,7 +27,7 @@
         .hero{background:linear-gradient(135deg,#1a1a1a,#0a0a0a);padding:40px;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:32px;position:relative;overflow:hidden}
         .hero::after{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,152,0,.08),transparent);border-radius:50%}
         .hero h1{color:var(--accent);font-size:2rem;margin-bottom:8px}.hero p{color:var(--muted);font-size:1rem;line-height:1.6;max-width:600px}
-        .hero-btns{margin-top:20px;display:flex;gap:12px;position:relative;z-index:1}
+        .hero-btns{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
         .btn{padding:10px 24px;border-radius:20px;font-weight:700;text-decoration:none;display:inline-block;font-size:.85rem;transition:.2s}
         .btn-orange{background:var(--accent);color:#000}.btn-orange:hover{background:var(--accent2)}
         .btn-red{background:var(--red);color:#fff}.btn-red:hover{opacity:.85}
@@ -87,7 +87,8 @@
         <h1>Simready Tools</h1>
         <p>A unified professional environment for scene assembly, interior population, and physics-based placement in 3ds Max. Seven modules cover the entire pipeline — from painting with objects across surfaces to dropping piles of products into containers with real physics.</p>
         <div class="hero-btns">
-            <a href="https://drive.google.com/file/d/1L5QvnMOULUU_FBsIgRpRo17_A-IBhS5v/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ Download Script (.MS)</a>
+            <a href="https://drive.google.com/file/d/1DvLXA-gFLAvknxVop-Sn_5TE2fIkVt0L/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ Download Script (.MS)</a>
+            <a href="https://drive.google.com/file/d/1D-a1LJP2zLQrugBy4rTbV6PfP7oyCfZR/view?usp=drive_link" target="_blank" class="btn btn-orange">⬇ tyFlow for Max 2022 (.DLO)</a>
             <a href="https://youtu.be/VzrFQNIhO_g" target="_blank" class="btn btn-red">▶ Video Tutorial</a>
         </div>
     </div>
@@ -119,7 +120,7 @@
     </div>
     <div class="doc">
         <h3>Requirements</h3>
-        <div class="entry"><div class="lbl">tyFlow</div><div class="info"><h4>Needed for Physics Drop only</h4><p>The <strong>Physics Drop</strong> module runs on the free <strong>tyFlow</strong> plugin. Without it every other module works, and Physics Drop shows a message that tyFlow is not installed.</p></div></div>
+        <div class="entry"><div class="lbl">tyFlow</div><div class="info"><h4>Needed for Physics Drop only</h4><p>The <strong>Physics Drop</strong> module runs on the free <strong>tyFlow</strong> plugin. Without it every other module works, and Physics Drop shows a message that tyFlow is not installed.</p><p>For <strong>3ds Max 2022</strong>: download <a href="https://drive.google.com/file/d/1D-a1LJP2zLQrugBy4rTbV6PfP7oyCfZR/view?usp=drive_link" target="_blank" style="color:var(--accent)">tyFlow_2022.dlo</a>, close 3ds Max, copy the file into the <strong>Plugins</strong> folder of your 3ds Max installation (e.g. <strong>C:\Program Files\Autodesk\3ds Max 2022\Plugins</strong>) and start Max again.</p><div class="tip">💡 This file only works in 3ds Max 2022. For other Max versions, use the tyFlow build made for that version.</div></div></div>
     </div>
     <div class="warn"><strong>⚠️ Category changed:</strong> Since v2.9 the tool lives in the <strong>PHYSICL</strong> category (it was <strong>Nfinite</strong> before). Old toolbar buttons from the Nfinite category still work: they open the current version. Still, drag the button again from <strong>PHYSICL</strong>, because the old alias will be removed in a future version.</div>
 </div>
